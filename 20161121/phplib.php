@@ -3,7 +3,7 @@
 //
 //	クラス記号: IH-12A-621
 //  名前: 河野純也
-//  日付: 2016/11/14
+//  日付: 2016/11/21
 //
 //******************************
 
@@ -45,7 +45,7 @@ function throw_error($title,$err_type,$err_content){ ?>
 				<td class="err-content"><?= $err_content ?></td>
 			</tr>
 		</table>
-		<button class="btn btn-info" onClick="history.back()">BACK</button>
+		<a class="btn btn-info" href="/20161121/">BACK</a>
 	</div>
 	<script src="../asset/js/bootstrap.min.js"></script>
 </body>

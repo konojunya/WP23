@@ -3,9 +3,10 @@
 //
 //	クラス記号: IH-12A-621
 //  名前: 河野純也
-//  日付: 2016/11/14
+//  日付: 2016/11/21
 //
 //******************************
+session_start();
 
 require "./phplib.php";
 require_once "./database.php";
@@ -43,6 +44,13 @@ if(!(array_key_exists($id, $database))) throw_error("エラー","在籍エラー
 */
 if($database[$id] != $password) throw_error("エラー","パスワードエラー","パスワードが一致しません");
 
+// session に値を代入する
+$user_data = $_POST;
+
+foreach ($user_data as $key => $value) {
+	$_SESSION[$key] = $value;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -53,45 +61,48 @@ if($database[$id] != $password) throw_error("エラー","パスワードエラ�
 </head>
 <body>
 	<div class="container">
-		<table class="table">
-			<tr>
-				<td>ユーザー</td>
-				<td><?= $id ?></td>
-			</tr>
-			<tr>
-				<td>パスワード</td>
-				<td><?= $password ?></td>
-			</tr>
-			<tr>
-				<td>氏名</td>
-				<td><?= $name ?></td>
-			</tr>
-			<tr>
-				<td>氏名カナ</td>
-				<td><?= $name_kana ?></td>
-			</tr>
-			<tr>
-				<td>住所</td>
-				<td><?= $address ?></td>
-			</tr>
-			<tr>
-				<td>TEL</td>
-				<td><?= $tel ?></td>
-			</tr>
-			<tr>
-				<td>Mail</td>
-				<td><?= $mail ?></td>
-			</tr>
-			<tr>
-				<td>生年月日</td>
-				<td><?= $birthday ?></td>
-			</tr>
-			<tr>
-				<td>専攻</td>
-				<td><?= $subject ?></td>
-			</tr>
-		</table>
-		<a class="btn btn-info" href="/20161114">BACK</a>
+		<h2>下記の内容で登録してよろしいですか？</h2>
+		<form action="http://localhost:8888/20161121/p05-2.php" method="post">
+			<table class="table">
+				<tr>
+					<td>ユーザー</td>
+					<td><?= $id ?></td>
+				</tr>
+				<tr>
+					<td>パスワード</td>
+					<td><?= $password ?></td>
+				</tr>
+				<tr>
+					<td>氏名</td>
+					<td><?= $name ?></td>
+				</tr>
+				<tr>
+					<td>氏名カナ</td>
+					<td><?= $name_kana ?></td>
+				</tr>
+				<tr>
+					<td>住所</td>
+					<td><?= $address ?></td>
+				</tr>
+				<tr>
+					<td>TEL</td>
+					<td><?= $tel ?></td>
+				</tr>
+				<tr>
+					<td>Mail</td>
+					<td><?= $mail ?></td>
+				</tr>
+				<tr>
+					<td>生年月日</td>
+					<td><?= $birthday ?></td>
+				</tr>
+				<tr>
+					<td>専攻</td>
+					<td><?= $subject ?></td>
+				</tr>
+			</table>
+			<input type="submit" value="登録"/>
+		</form>
 	</div>
 	<script src="../asset/js/bootstrap.min.js"></script>
 </body>
