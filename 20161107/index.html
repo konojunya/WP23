@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,html{
+			width: 100%;
+			height: 100%;
+			background-color: #fafafa;
+		}
+		.form{
+			text-align: center;
+			padding: 3px;
+		}
+		form{
+			display: inline-block;
+			text-align: left;
+		}
+		label{
+			display: block;
+			margin: 10px 0;
+		}
+		input{
+			display: block;
+			padding: 5px;
+			border: 0;
+			border: 1px solid #404040;
+			outline: none;
+		}
+		button{
+			display: block;
+			margin: 10px 0;
+			border: 0;
+			outline: none;
+			background-color: #fff;
+			border: 1px solid #404040;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="form">
+		<form action="./p03.php" method="post">
+			<h1>ログイン</h1>
+			<label>ユーザー</label>
+			<input type="text" name="user" placeholder="user id">
+			<label>パスワード</label>
+			<input type="password" name="password" placeholder="password">
+			<button type="submit">submit</button>
+		</form>
+	</div>
+
+</body>
+</html>
