@@ -1,24 +1,17 @@
 <?php
 //+------------------------------------------------------------------+
-//|　クラス記号:IH12A621　出席No:37
-//|　氏名:西川和希
+//|　クラス記号:IH12A621　出席No:21
+//|　氏名: 河野純也
 //|　課題No:07　　課題名:ファイルアクセスカウンタ
 //+------------------------------------------------------------------+
-
-	require '../lib/php_lib.php';
 
 	$filepointer = fopen('./count.txt', 'r');
 	$count = fgets($filepointer);
 	fclose($filepointer);
 
 	$filepointer = fopen('./count.txt', 'w');
-	if (!$filepointer) {
-		//Err_sub("エラー","");
-	}
-	else {
-		$count++;
-		fputs($filepointer,$count);
-	}
+	$count++;
+	fputs($filepointer,$count);
 	fclose($filepointer);
 
 	
@@ -28,21 +21,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>ファイルアクセスカウンタ</title>
 </head>
 
 <body>
 	
-	<?php
-		foreach ($tbl as $value) {
-			$img = 'images/'. $value .'.jpg';
-			?>
-			<img src="<?= $img ?>">
-			<?php
-		}
-		print "人目です"
-	?>
+	<?php foreach ($tbl as $value): ?>
+			<img src="<?= 'img/'. $value .'.png' ?>">
+	<?php endforeach; ?>
+	人目です
 
 </body>
 </html>
