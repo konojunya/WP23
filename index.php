@@ -1,9 +1,3 @@
-<?php
-
-$dirs = scandir("./");
-foreach ($dirs as $value):
-	if(preg_match('/^\d+$/',$value)):
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +6,19 @@ foreach ($dirs as $value):
 </head>
 <body>
 
+<?php
+
+$dirs = scandir("./");
+foreach ($dirs as $value):
+	if(preg_match('/^\d+$/',$value)):
+?>
 	<p>
 		<a href="./<?= $value ?>"><?= $value ?></a>
 	</p>
-
-</body>
-</html>
-
 <?php
 	endif;
 endforeach;
+?>
+
+</body>
+</html>
